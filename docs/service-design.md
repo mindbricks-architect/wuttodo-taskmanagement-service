@@ -1,7 +1,7 @@
 # Service Design Specification
 
 **wuttodo-taskmanagement-service** documentation
--Version:**`1.0.0`**
+-Version:**`1.0.3`**
 
 ## Scope
 
@@ -40,8 +40,8 @@ The service uses a **PostgreSQL** database for data storage, with the database n
 This service is accessible via the following environment-specific URLs:
 
 - **Preview:** `https://wuttodo.prw.mindbricks.com/taskManagement-api`
-- **Staging:** `https://taskManagement-api.wuttodo.staging.mindbricks.com`
-- **Production:** `https://taskManagement-api.wuttodo.prod.mindbricks.com`
+- **Staging:** `https://wuttodo-stage.mindbricks.co/taskManagement-api`
+- **Production:** `https://wuttodo.mindbricks.co/taskManagement-api`
 
 ### Authentication & Security
 
@@ -56,9 +56,10 @@ The service uses a **PostgreSQL** database for data storage, with the database n
 
 Data deletion is managed using a **soft delete** strategy. Instead of removing records from the database, they are flagged as inactive by setting the `isActive` field to `false`.
 
-| Object Name | Description                                                                                    | Public Access |
-| ----------- | ---------------------------------------------------------------------------------------------- | ------------- |
-| `task`      | A single todo task with a required title. Represents a minimal to-do item for a personal list. | accessPrivate |
+| Object Name     | Description                                                                                    | Public Access |
+| --------------- | ---------------------------------------------------------------------------------------------- | ------------- |
+| `task`          | A single todo task with a required title. Represents a minimal to-do item for a personal list. | accessPrivate |
+| `newtasktotest` | No description                                                                                 | accessPrivate |
 
 ## task Data Object
 
@@ -81,6 +82,13 @@ It is defined using the `ObjectSettings` pattern, which governs its behavior, ac
 | `title`  | String | Yes      | The main description or name of the todo item. Required and must be non-empty. |
 
 - Required properties are mandatory for creating objects and must be provided in the request body if no default value is set.
+
+### Default Values
+
+Default values are automatically assigned to properties when a new object is created, if no value is provided in the request body.
+Since default values are applied on db level, they should be literal values, not expressions.If you want to use expressions, you can use transposed parameters in any business API to set default values dynamically.
+
+- **title**: &#39;default&#39;
 
 ### Auto Update Properties
 
@@ -105,6 +113,50 @@ Filter properties are used to define parameters that can be used in query filter
 These properties are automatically mapped as API parameters in the listing API's that have "Auto Params" enabled.
 
 - **title**: String has a filter named `title`
+
+## newtasktotest Data Object
+
+### Object Overview
+
+**Description:** No description provided.
+
+This object represents a core data structure within the service and acts as the blueprint for database interaction, API generation, and business logic enforcement.
+It is defined using the `ObjectSettings` pattern, which governs its behavior, access control, caching strategy, and integration points with other systems such as Stripe and Redis.
+
+### Core Configuration
+
+- **Soft Delete:** Enabled — Determines whether records are marked inactive (`isActive = false`) instead of being physically deleted.
+- **Public Access:** accessPrivate — If enabled, anonymous users may access this object’s data depending on API-level rules.
+
+### Properties Schema
+
+| Property      | Type | Required | Description |
+| ------------- | ---- | -------- | ----------- |
+| `somenewprop` | Text | Yes      | -           |
+
+- Required properties are mandatory for creating objects and must be provided in the request body if no default value is set.
+
+### Default Values
+
+Default values are automatically assigned to properties when a new object is created, if no value is provided in the request body.
+Since default values are applied on db level, they should be literal values, not expressions.If you want to use expressions, you can use transposed parameters in any business API to set default values dynamically.
+
+- **somenewprop**: &#39;text&#39;
+
+### Auto Update Properties
+
+`somenewprop`
+
+An update crud API created with the option `Auto Params` enabled will automatically update these properties with the provided values in the request body.
+If you want to update any property in your own business logic not by user input, you can set the `Allow Auto Update` option to false.
+These properties will be added to the update API's body parameters and can be updated by the user if any value is provided in the request body.
+
+### Elastic Search Indexing
+
+`somenewprop`
+
+Properties that are indexed in Elastic Search will be searchable via the Elastic Search API.
+While all properties are stored in the elastic search index of the data object, only those marked for Elastic Search indexing will be available for search queries.
 
 ## Business Logic
 

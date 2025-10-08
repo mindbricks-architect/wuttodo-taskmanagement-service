@@ -3,8 +3,8 @@ const router = express.Router();
 const fs = require("fs");
 const path = require("path");
 
-const { createSessionManager } = require("sessionLayer");
 const createServiceController = require("./create-service-controller");
+const createEventToken = require("../../utils/eventToken");
 
 const initWithRestController = async (name, routeName, req, res) => {
   const restController = createServiceController(name, routeName, req, res);
@@ -117,6 +117,19 @@ const addSessionRoutes = () => {
       res.status(401).send(err.message);
     }
   });
+
+  router.get("/realtimetoken", async (req, res) => {
+    try {
+      await initWithRestController("realtimetoken", "realtimetoken", req, res);
+      const token = await createEventToken(req.session);
+      res.setHeader("Content-Type", "application/json");
+      res.status(200).send({
+        eventToken: token,
+      });
+    } catch (err) {
+      res.status(err.statusCode ?? 500).send(err.message);
+    }
+  });
 };
 
 const addLoginRoutes = () => {
@@ -187,9 +200,6 @@ const addLoginRoutes = () => {
   });
 
   router.post("/logout", async (req, res) => {
-    // const loginSession = createSessionManager();
-    // loginSession.logoutUserController(req, res, next);
-
     try {
       const restController = createServiceController(
         "logout",

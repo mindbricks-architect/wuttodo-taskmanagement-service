@@ -1,4 +1,8 @@
 const { getTaskById, getIdListOfTaskByField } = require("dbLayer");
+const {
+  getNewtasktotestById,
+  getIdListOfNewtasktotestByField,
+} = require("dbLayer");
 const path = require("path");
 const fs = require("fs");
 const { ElasticIndexer } = require("serviceCommon");
@@ -23,6 +27,29 @@ const indexTaskData = async () => {
   return total;
 };
 
+const indexNewtasktotestData = async () => {
+  const newtasktotestIndexer = new ElasticIndexer("newtasktotest", {
+    isSilent: true,
+  });
+  console.log("Starting to update indexes for Newtasktotest");
+
+  const idList =
+    (await getIdListOfNewtasktotestByField("isActive", true)) ?? [];
+  const chunkSize = 500;
+  let total = 0;
+  for (let i = 0; i < idList.length; i += chunkSize) {
+    const chunk = idList.slice(i, i + chunkSize);
+    const dataList = await getNewtasktotestById(chunk);
+    if (dataList.length) {
+      await newtasktotestIndexer.indexBulkData(dataList);
+      await newtasktotestIndexer.deleteRedisCache();
+    }
+    total += dataList.length;
+  }
+
+  return total;
+};
+
 const syncElasticIndexData = async () => {
   const startTime = new Date();
   console.log("syncElasticIndexData started", startTime);
@@ -32,6 +59,19 @@ const syncElasticIndexData = async () => {
     console.log("Task agregated data is indexed, total tasks:", dataCount);
   } catch (err) {
     console.log("Elastic Index Error When Syncing Task data", err.toString());
+  }
+
+  try {
+    const dataCount = await indexNewtasktotestData();
+    console.log(
+      "Newtasktotest agregated data is indexed, total newtasktotests:",
+      dataCount,
+    );
+  } catch (err) {
+    console.log(
+      "Elastic Index Error When Syncing Newtasktotest data",
+      err.toString(),
+    );
   }
 
   const elapsedTime = new Date() - startTime;

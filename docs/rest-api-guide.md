@@ -213,6 +213,13 @@ _Task Resource Properties_
 | ---- | ---- | -------- | ------- | ---------- |
 | **title** | String | | | _The main description or name of the todo item. Required and must be non-empty._ |
 
+### Newtasktotest resource
+
+_Newtasktotest Resource Properties_
+| Name | Type | Required | Default | Definition |
+| ---- | ---- | -------- | ------- | ---------- |
+| **somenewprop** | Text | | | \*\* |
+
 ## Business Api
 
 ### Create Task API

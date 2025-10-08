@@ -10,11 +10,24 @@ const taskMapping = {
   createdAt: { type: "date" },
   updatedAt: { type: "date" },
 };
+const newtasktotestMapping = {
+  id: { type: "keyword" },
+  _owner: { type: "keyword" },
+  somenewprop: { type: "text", index: true },
+  isActive: { type: "boolean" },
+  recordVersion: { type: "integer" },
+  createdAt: { type: "date" },
+  updatedAt: { type: "date" },
+};
 
 const updateElasticIndexMappings = async () => {
   try {
     ElasticIndexer.addMapping("task", taskMapping);
     await new ElasticIndexer("task").updateMapping(taskMapping);
+    ElasticIndexer.addMapping("newtasktotest", newtasktotestMapping);
+    await new ElasticIndexer("newtasktotest").updateMapping(
+      newtasktotestMapping,
+    );
   } catch (err) {
     hexaLogger.insertError(
       "UpdateElasticIndexMappingsError",

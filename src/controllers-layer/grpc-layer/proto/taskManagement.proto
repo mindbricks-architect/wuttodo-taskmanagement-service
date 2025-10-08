@@ -9,6 +9,10 @@ message task {
     string id = 1;
     string title = 2;
 }
+message newtasktotest {
+    string id = 1;
+    string somenewprop = 2;
+}
 
 
 

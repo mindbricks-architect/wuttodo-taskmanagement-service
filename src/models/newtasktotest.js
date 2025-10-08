@@ -1,19 +1,19 @@
 const { sequelize } = require("common");
 const { DataTypes } = require("sequelize");
 
-//A single todo task with a required title. Represents a minimal to-do item for a personal list.
-const Task = sequelize.define(
-  "task",
+//
+const Newtasktotest = sequelize.define(
+  "newtasktotest",
   {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
     },
-    title: {
-      // The main description or name of the todo item. Required and must be non-empty.
-      type: DataTypes.STRING,
+    somenewprop: {
+      //
+      type: DataTypes.TEXT,
       allowNull: false,
-      defaultValue: "default",
+      defaultValue: "text",
     },
     isActive: {
       // isActive property will be set to false when deleted
@@ -28,4 +28,4 @@ const Task = sequelize.define(
   },
 );
 
-module.exports = Task;
+module.exports = Newtasktotest;

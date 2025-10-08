@@ -81,12 +81,21 @@ app.post("/mcp", async (req, res) => {
     const {
       // main Database Crud Object Mcp Routers
       taskMcpRouter,
+      newtasktotestMcpRouter,
       getSessionRouter,
     } = require("mcpLayer")(initialHeaders);
 
     const sessionRouter = getSessionRouter(initialHeaders);
 
     taskMcpRouter.forEach((mcpTool) =>
+      server.tool(
+        mcpTool.name,
+        mcpTool.description,
+        mcpTool.parameters,
+        mcpTool.controller,
+      ),
+    );
+    newtasktotestMcpRouter.forEach((mcpTool) =>
       server.tool(
         mcpTool.name,
         mcpTool.description,

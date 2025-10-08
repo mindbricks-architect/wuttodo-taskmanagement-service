@@ -1,4 +1,5 @@
 const taskFunctions = require("./task");
+const newtasktotestFunctions = require("./newtasktotest");
 
 module.exports = {
   // main Database
@@ -19,4 +20,20 @@ module.exports = {
   dbScriptDeleteTask: taskFunctions.dbScriptDeleteTask,
   dbScriptGetTask: taskFunctions.dbScriptGetTask,
   dbScriptListTasks: taskFunctions.dbScriptListTasks,
+  createNewtasktotest: newtasktotestFunctions.createNewtasktotest,
+  getIdListOfNewtasktotestByField:
+    newtasktotestFunctions.getIdListOfNewtasktotestByField,
+  getNewtasktotestById: newtasktotestFunctions.getNewtasktotestById,
+  getNewtasktotestAggById: newtasktotestFunctions.getNewtasktotestAggById,
+  getNewtasktotestListByQuery:
+    newtasktotestFunctions.getNewtasktotestListByQuery,
+  getNewtasktotestStatsByQuery:
+    newtasktotestFunctions.getNewtasktotestStatsByQuery,
+  getNewtasktotestByQuery: newtasktotestFunctions.getNewtasktotestByQuery,
+  updateNewtasktotestById: newtasktotestFunctions.updateNewtasktotestById,
+  updateNewtasktotestByIdList:
+    newtasktotestFunctions.updateNewtasktotestByIdList,
+  updateNewtasktotestByQuery: newtasktotestFunctions.updateNewtasktotestByQuery,
+  deleteNewtasktotestById: newtasktotestFunctions.deleteNewtasktotestById,
+  deleteNewtasktotestByQuery: newtasktotestFunctions.deleteNewtasktotestByQuery,
 };

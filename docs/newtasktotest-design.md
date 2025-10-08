@@ -1,16 +1,16 @@
-# Service Design Specification - Object Design for task
+# Service Design Specification - Object Design for newtasktotest
 
 **wuttodo-taskmanagement-service** documentation
 
 ## Document Overview
 
-This document outlines the object design for the `task` model in our application. It includes details about the model's attributes, relationships, and any specific validation or business logic that applies.
+This document outlines the object design for the `newtasktotest` model in our application. It includes details about the model's attributes, relationships, and any specific validation or business logic that applies.
 
-## task Data Object
+## newtasktotest Data Object
 
 ### Object Overview
 
-**Description:** A single todo task with a required title. Represents a minimal to-do item for a personal list.
+**Description:** No description provided.
 
 This object represents a core data structure within the service and acts as the blueprint for database interaction, API generation, and business logic enforcement.
 It is defined using the `ObjectSettings` pattern, which governs its behavior, access control, caching strategy, and integration points with other systems such as Stripe and Redis.
@@ -22,9 +22,9 @@ It is defined using the `ObjectSettings` pattern, which governs its behavior, ac
 
 ### Properties Schema
 
-| Property | Type   | Required | Description                                                                    |
-| -------- | ------ | -------- | ------------------------------------------------------------------------------ |
-| `title`  | String | Yes      | The main description or name of the todo item. Required and must be non-empty. |
+| Property      | Type | Required | Description |
+| ------------- | ---- | -------- | ----------- |
+| `somenewprop` | Text | Yes      | -           |
 
 - Required properties are mandatory for creating objects and must be provided in the request body if no default value is set.
 
@@ -33,11 +33,11 @@ It is defined using the `ObjectSettings` pattern, which governs its behavior, ac
 Default values are automatically assigned to properties when a new object is created, if no value is provided in the request body.
 Since default values are applied on db level, they should be literal values, not expressions.If you want to use expressions, you can use transposed parameters in any business API to set default values dynamically.
 
-- **title**: &#39;default&#39;
+- **somenewprop**: &#39;text&#39;
 
 ### Auto Update Properties
 
-`title`
+`somenewprop`
 
 An update crud API created with the option `Auto Params` enabled will automatically update these properties with the provided values in the request body.
 If you want to update any property in your own business logic not by user input, you can set the `Allow Auto Update` option to false.
@@ -45,16 +45,7 @@ These properties will be added to the update API's body parameters and can be up
 
 ### Elastic Search Indexing
 
-`title`
+`somenewprop`
 
 Properties that are indexed in Elastic Search will be searchable via the Elastic Search API.
 While all properties are stored in the elastic search index of the data object, only those marked for Elastic Search indexing will be available for search queries.
-
-### Filter Properties
-
-`title`
-
-Filter properties are used to define parameters that can be used in query filters, allowing for dynamic data retrieval based on user input or predefined criteria.
-These properties are automatically mapped as API parameters in the listing API's that have "Auto Params" enabled.
-
-- **title**: String has a filter named `title`

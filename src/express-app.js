@@ -21,6 +21,8 @@ const { version } = require("../package.json");
 
 const { integrationRouter } = require("apiLayer");
 
+const createEventToken = require("./utils/eventToken");
+
 const app = express();
 
 const unless = function (paths, middleware) {
@@ -91,9 +93,11 @@ app.use("/integrations", integrationRouter);
 const {
   // main Database Crud Object Rest Api Routers
   taskRouter,
+  newtasktotestRouter,
 } = require("restLayer");
 
 app.use("", taskRouter);
+app.use("", newtasktotestRouter);
 
 // swagger
 
@@ -135,7 +139,7 @@ app.use(
 );
 
 app.get("/favicon.ico", (req, res) => {
-  const iconUrl = "https://mindbricks.com/favicon.ico";
+  const iconUrl = "https://minioapi.masaupp.com/mindbricks/favico.ico";
   res.redirect(iconUrl);
 });
 

@@ -2,16 +2,16 @@ const { HttpServerError, BadRequestError } = require("common");
 
 const { ElasticIndexer } = require("serviceCommon");
 
-const { Task } = require("models");
+const { Newtasktotest } = require("models");
 const { hexaLogger, newUUID } = require("common");
 
 const indexDataToElastic = async (data) => {
-  const elasticIndexer = new ElasticIndexer("task");
+  const elasticIndexer = new ElasticIndexer("newtasktotest");
   await elasticIndexer.indexData(data);
 };
 
 const validateData = (data) => {
-  const requiredFields = ["title"];
+  const requiredFields = ["somenewprop"];
 
   requiredFields.forEach((field) => {
     if (data[field] === null || data[field] === undefined) {
@@ -26,30 +26,32 @@ const validateData = (data) => {
   }
 };
 
-const createTask = async (data) => {
+const createNewtasktotest = async (data) => {
   try {
     validateData(data);
 
-    const current_task = data.id ? await Task.findByPk(data.id) : null;
-    let newtask = null;
+    const current_newtasktotest = data.id
+      ? await Newtasktotest.findByPk(data.id)
+      : null;
+    let newnewtasktotest = null;
 
-    if (current_task) {
+    if (current_newtasktotest) {
       delete data.id;
       data.isActive = true;
-      await current_task.update(data);
-      newtask = current_task;
+      await current_newtasktotest.update(data);
+      newnewtasktotest = current_newtasktotest;
     }
 
-    if (!newtask) {
-      newtask = await Task.create(data);
+    if (!newnewtasktotest) {
+      newnewtasktotest = await Newtasktotest.create(data);
     }
 
-    const _data = newtask.getData();
+    const _data = newnewtasktotest.getData();
     await indexDataToElastic(_data);
     return _data;
   } catch (err) {
-    throw new HttpServerError("errMsg_dbErrorWhenCreatingTask", err);
+    throw new HttpServerError("errMsg_dbErrorWhenCreatingNewtasktotest", err);
   }
 };
 
-module.exports = createTask;
+module.exports = createNewtasktotest;

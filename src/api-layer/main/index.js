@@ -6,4 +6,5 @@ module.exports = {
   DeleteTaskManager: require("./task/delete-task-api"),
   GetTaskManager: require("./task/get-task-api"),
   ListTasksManager: require("./task/list-tasks-api"),
+  // Newtasktotest Db Object
 };

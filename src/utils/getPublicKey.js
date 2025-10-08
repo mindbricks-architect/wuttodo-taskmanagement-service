@@ -3,6 +3,7 @@ const fs = require("fs");
 const { getRestData } = require("common");
 
 module.exports = async (keyId) => {
+  let userServicePublickKeyApi = "";
   try {
     const keysFolder = process.env.KEYS_FOLDER || "keys";
 
@@ -14,10 +15,10 @@ module.exports = async (keyId) => {
       console.log("Keys folder created:", publicKeyFolder);
     }
 
-    const userServicePublickKeyApi =
-      process.env.SERVICE_URL.replace(process.env.SERVICE_SHORT_NAME, "auth") +
-      "/publickey" +
-      (keyId ? "?keyId=" + keyId : "");
+    const authUrl = process.env.AUTH_SERVICE_URL;
+
+    userServicePublickKeyApi =
+      authUrl + "/publickey" + (keyId ? "?keyId=" + keyId : "");
 
     const publicKey = await getRestData(userServicePublickKeyApi);
     if (publicKey instanceof Error) {
@@ -41,11 +42,14 @@ module.exports = async (keyId) => {
       );
       return publicKey;
     } else {
-      console.log("Public key not found from the server");
+      console.log(
+        "Public key not found from the server",
+        userServicePublickKeyApi,
+      );
       return null;
     }
   } catch (err) {
-    console.log("Error in getPublicKey");
+    console.log("Error in getPublicKey", userServicePublickKeyApi);
     console.log(err?.message || err);
     return null;
   }

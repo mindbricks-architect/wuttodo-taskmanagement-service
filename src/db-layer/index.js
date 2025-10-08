@@ -19,4 +19,17 @@ module.exports = {
   dbScriptDeleteTask: mainFunctions.dbScriptDeleteTask,
   dbScriptGetTask: mainFunctions.dbScriptGetTask,
   dbScriptListTasks: mainFunctions.dbScriptListTasks,
+  createNewtasktotest: mainFunctions.createNewtasktotest,
+  getIdListOfNewtasktotestByField:
+    mainFunctions.getIdListOfNewtasktotestByField,
+  getNewtasktotestById: mainFunctions.getNewtasktotestById,
+  getNewtasktotestAggById: mainFunctions.getNewtasktotestAggById,
+  getNewtasktotestListByQuery: mainFunctions.getNewtasktotestListByQuery,
+  getNewtasktotestStatsByQuery: mainFunctions.getNewtasktotestStatsByQuery,
+  getNewtasktotestByQuery: mainFunctions.getNewtasktotestByQuery,
+  updateNewtasktotestById: mainFunctions.updateNewtasktotestById,
+  updateNewtasktotestByIdList: mainFunctions.updateNewtasktotestByIdList,
+  updateNewtasktotestByQuery: mainFunctions.updateNewtasktotestByQuery,
+  deleteNewtasktotestById: mainFunctions.deleteNewtasktotestById,
+  deleteNewtasktotestByQuery: mainFunctions.deleteNewtasktotestByQuery,
 };
