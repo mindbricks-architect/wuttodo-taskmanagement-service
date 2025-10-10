@@ -1,7 +1,7 @@
 # Service Design Specification
 
 **wuttodo-taskmanagement-service** documentation
--Version:**`1.0.4`**
+-Version:**`1.0.8`**
 
 ## Scope
 
@@ -60,6 +60,8 @@ Data deletion is managed using a **soft delete** strategy. Instead of removing r
 | --------------- | ---------------------------------------------------------------------------------------------- | ------------- |
 | `task`          | A single todo task with a required title. Represents a minimal to-do item for a personal list. | accessPrivate |
 | `newtasktotest` | No description                                                                                 | accessPrivate |
+| `rfewtgwre`     | No description                                                                                 | accessPrivate |
+| `trewytgre`     | No description                                                                                 | accessPrivate |
 
 ## task Data Object
 
@@ -159,6 +161,42 @@ These properties will be added to the update API's body parameters and can be up
 
 Properties that are indexed in Elastic Search will be searchable via the Elastic Search API.
 While all properties are stored in the elastic search index of the data object, only those marked for Elastic Search indexing will be available for search queries.
+
+## rfewtgwre Data Object
+
+### Object Overview
+
+**Description:** No description provided.
+
+This object represents a core data structure within the service and acts as the blueprint for database interaction, API generation, and business logic enforcement.
+It is defined using the `ObjectSettings` pattern, which governs its behavior, access control, caching strategy, and integration points with other systems such as Stripe and Redis.
+
+### Core Configuration
+
+- **Soft Delete:** Enabled — Determines whether records are marked inactive (`isActive = false`) instead of being physically deleted.
+- **Public Access:** accessPrivate — If enabled, anonymous users may access this object’s data depending on API-level rules.
+
+### Properties Schema
+
+**No properties defined for this object.**
+
+## trewytgre Data Object
+
+### Object Overview
+
+**Description:** No description provided.
+
+This object represents a core data structure within the service and acts as the blueprint for database interaction, API generation, and business logic enforcement.
+It is defined using the `ObjectSettings` pattern, which governs its behavior, access control, caching strategy, and integration points with other systems such as Stripe and Redis.
+
+### Core Configuration
+
+- **Soft Delete:** Enabled — Determines whether records are marked inactive (`isActive = false`) instead of being physically deleted.
+- **Public Access:** accessPrivate — If enabled, anonymous users may access this object’s data depending on API-level rules.
+
+### Properties Schema
+
+**No properties defined for this object.**
 
 ## Business Logic
 

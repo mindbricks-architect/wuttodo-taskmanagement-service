@@ -94,10 +94,14 @@ const {
   // main Database Crud Object Rest Api Routers
   taskRouter,
   newtasktotestRouter,
+  rfewtgwreRouter,
+  trewytgreRouter,
 } = require("restLayer");
 
 app.use("", taskRouter);
 app.use("", newtasktotestRouter);
+app.use("", rfewtgwreRouter);
+app.use("", trewytgreRouter);
 
 // swagger
 

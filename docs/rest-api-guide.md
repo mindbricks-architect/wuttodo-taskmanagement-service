@@ -221,6 +221,18 @@ _Newtasktotest Resource Properties_
 | ---- | ---- | -------- | ------- | ---------- |
 | **somenewprop** | Text | | | \*\* |
 
+### Rfewtgwre resource
+
+_Rfewtgwre Resource Properties_
+| Name | Type | Required | Default | Definition |
+| ---- | ---- | -------- | ------- | ---------- |
+
+### Trewytgre resource
+
+_Trewytgre Resource Properties_
+| Name | Type | Required | Default | Definition |
+| ---- | ---- | -------- | ------- | ---------- |
+
 ## Business Api
 
 ### Create Task API

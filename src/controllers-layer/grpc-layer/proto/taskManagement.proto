@@ -14,6 +14,12 @@ message newtasktotest {
     string id = 1;
     string somenewprop = 2;
 }
+message rfewtgwre {
+    string id = 1;
+}
+message trewytgre {
+    string id = 1;
+}
 
 
 

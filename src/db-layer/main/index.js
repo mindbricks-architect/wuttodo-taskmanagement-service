@@ -1,5 +1,7 @@
 const taskFunctions = require("./task");
 const newtasktotestFunctions = require("./newtasktotest");
+const rfewtgwreFunctions = require("./rfewtgwre");
+const trewytgreFunctions = require("./trewytgre");
 
 module.exports = {
   // main Database
@@ -36,4 +38,30 @@ module.exports = {
   updateNewtasktotestByQuery: newtasktotestFunctions.updateNewtasktotestByQuery,
   deleteNewtasktotestById: newtasktotestFunctions.deleteNewtasktotestById,
   deleteNewtasktotestByQuery: newtasktotestFunctions.deleteNewtasktotestByQuery,
+
+  createRfewtgwre: rfewtgwreFunctions.createRfewtgwre,
+  getIdListOfRfewtgwreByField: rfewtgwreFunctions.getIdListOfRfewtgwreByField,
+  getRfewtgwreById: rfewtgwreFunctions.getRfewtgwreById,
+  getRfewtgwreAggById: rfewtgwreFunctions.getRfewtgwreAggById,
+  getRfewtgwreListByQuery: rfewtgwreFunctions.getRfewtgwreListByQuery,
+  getRfewtgwreStatsByQuery: rfewtgwreFunctions.getRfewtgwreStatsByQuery,
+  getRfewtgwreByQuery: rfewtgwreFunctions.getRfewtgwreByQuery,
+  updateRfewtgwreById: rfewtgwreFunctions.updateRfewtgwreById,
+  updateRfewtgwreByIdList: rfewtgwreFunctions.updateRfewtgwreByIdList,
+  updateRfewtgwreByQuery: rfewtgwreFunctions.updateRfewtgwreByQuery,
+  deleteRfewtgwreById: rfewtgwreFunctions.deleteRfewtgwreById,
+  deleteRfewtgwreByQuery: rfewtgwreFunctions.deleteRfewtgwreByQuery,
+
+  createTrewytgre: trewytgreFunctions.createTrewytgre,
+  getIdListOfTrewytgreByField: trewytgreFunctions.getIdListOfTrewytgreByField,
+  getTrewytgreById: trewytgreFunctions.getTrewytgreById,
+  getTrewytgreAggById: trewytgreFunctions.getTrewytgreAggById,
+  getTrewytgreListByQuery: trewytgreFunctions.getTrewytgreListByQuery,
+  getTrewytgreStatsByQuery: trewytgreFunctions.getTrewytgreStatsByQuery,
+  getTrewytgreByQuery: trewytgreFunctions.getTrewytgreByQuery,
+  updateTrewytgreById: trewytgreFunctions.updateTrewytgreById,
+  updateTrewytgreByIdList: trewytgreFunctions.updateTrewytgreByIdList,
+  updateTrewytgreByQuery: trewytgreFunctions.updateTrewytgreByQuery,
+  deleteTrewytgreById: trewytgreFunctions.deleteTrewytgreById,
+  deleteTrewytgreByQuery: trewytgreFunctions.deleteTrewytgreByQuery,
 };

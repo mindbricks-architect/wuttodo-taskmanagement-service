@@ -3,6 +3,8 @@ const {
   getNewtasktotestById,
   getIdListOfNewtasktotestByField,
 } = require("dbLayer");
+const { getRfewtgwreById, getIdListOfRfewtgwreByField } = require("dbLayer");
+const { getTrewytgreById, getIdListOfTrewytgreByField } = require("dbLayer");
 const path = require("path");
 const fs = require("fs");
 const { ElasticIndexer } = require("serviceCommon");
@@ -50,6 +52,46 @@ const indexNewtasktotestData = async () => {
   return total;
 };
 
+const indexRfewtgwreData = async () => {
+  const rfewtgwreIndexer = new ElasticIndexer("rfewtgwre", { isSilent: true });
+  console.log("Starting to update indexes for Rfewtgwre");
+
+  const idList = (await getIdListOfRfewtgwreByField("isActive", true)) ?? [];
+  const chunkSize = 500;
+  let total = 0;
+  for (let i = 0; i < idList.length; i += chunkSize) {
+    const chunk = idList.slice(i, i + chunkSize);
+    const dataList = await getRfewtgwreById(chunk);
+    if (dataList.length) {
+      await rfewtgwreIndexer.indexBulkData(dataList);
+      await rfewtgwreIndexer.deleteRedisCache();
+    }
+    total += dataList.length;
+  }
+
+  return total;
+};
+
+const indexTrewytgreData = async () => {
+  const trewytgreIndexer = new ElasticIndexer("trewytgre", { isSilent: true });
+  console.log("Starting to update indexes for Trewytgre");
+
+  const idList = (await getIdListOfTrewytgreByField("isActive", true)) ?? [];
+  const chunkSize = 500;
+  let total = 0;
+  for (let i = 0; i < idList.length; i += chunkSize) {
+    const chunk = idList.slice(i, i + chunkSize);
+    const dataList = await getTrewytgreById(chunk);
+    if (dataList.length) {
+      await trewytgreIndexer.indexBulkData(dataList);
+      await trewytgreIndexer.deleteRedisCache();
+    }
+    total += dataList.length;
+  }
+
+  return total;
+};
+
 const syncElasticIndexData = async () => {
   const startTime = new Date();
   console.log("syncElasticIndexData started", startTime);
@@ -71,6 +113,34 @@ const syncElasticIndexData = async () => {
   } catch (err) {
     console.log(
       "Elastic Index Error When Syncing Newtasktotest data",
+      err.toString(),
+    );
+    console.log(err);
+  }
+
+  try {
+    const dataCount = await indexRfewtgwreData();
+    console.log(
+      "Rfewtgwre agregated data is indexed, total rfewtgwres:",
+      dataCount,
+    );
+  } catch (err) {
+    console.log(
+      "Elastic Index Error When Syncing Rfewtgwre data",
+      err.toString(),
+    );
+    console.log(err);
+  }
+
+  try {
+    const dataCount = await indexTrewytgreData();
+    console.log(
+      "Trewytgre agregated data is indexed, total trewytgres:",
+      dataCount,
+    );
+  } catch (err) {
+    console.log(
+      "Elastic Index Error When Syncing Trewytgre data",
       err.toString(),
     );
     console.log(err);

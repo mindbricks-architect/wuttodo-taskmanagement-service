@@ -7,6 +7,8 @@ const ProtectedObjectEvents = {};
 const PrivateObjectEvents = {
   task: [],
   newtasktotest: [],
+  rfewtgwre: [],
+  trewytgre: [],
 };
 
 const createAdminToken = async (session) => {

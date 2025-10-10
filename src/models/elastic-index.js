@@ -20,6 +20,22 @@ const newtasktotestMapping = {
   createdAt: { type: "date" },
   updatedAt: { type: "date" },
 };
+const rfewtgwreMapping = {
+  id: { type: "keyword" },
+  _owner: { type: "keyword" },
+  isActive: { type: "boolean" },
+  recordVersion: { type: "integer" },
+  createdAt: { type: "date" },
+  updatedAt: { type: "date" },
+};
+const trewytgreMapping = {
+  id: { type: "keyword" },
+  _owner: { type: "keyword" },
+  isActive: { type: "boolean" },
+  recordVersion: { type: "integer" },
+  createdAt: { type: "date" },
+  updatedAt: { type: "date" },
+};
 
 const updateElasticIndexMappings = async () => {
   try {
@@ -29,6 +45,10 @@ const updateElasticIndexMappings = async () => {
     await new ElasticIndexer("newtasktotest").updateMapping(
       newtasktotestMapping,
     );
+    ElasticIndexer.addMapping("rfewtgwre", rfewtgwreMapping);
+    await new ElasticIndexer("rfewtgwre").updateMapping(rfewtgwreMapping);
+    ElasticIndexer.addMapping("trewytgre", trewytgreMapping);
+    await new ElasticIndexer("trewytgre").updateMapping(trewytgreMapping);
   } catch (err) {
     hexaLogger.insertError(
       "UpdateElasticIndexMappingsError",

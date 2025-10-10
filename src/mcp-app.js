@@ -82,6 +82,8 @@ app.post("/mcp", async (req, res) => {
       // main Database Crud Object Mcp Routers
       taskMcpRouter,
       newtasktotestMcpRouter,
+      rfewtgwreMcpRouter,
+      trewytgreMcpRouter,
       getSessionRouter,
     } = require("mcpLayer")(initialHeaders);
 
@@ -96,6 +98,22 @@ app.post("/mcp", async (req, res) => {
       ),
     );
     newtasktotestMcpRouter.forEach((mcpTool) =>
+      server.tool(
+        mcpTool.name,
+        mcpTool.description,
+        mcpTool.parameters,
+        mcpTool.controller,
+      ),
+    );
+    rfewtgwreMcpRouter.forEach((mcpTool) =>
+      server.tool(
+        mcpTool.name,
+        mcpTool.description,
+        mcpTool.parameters,
+        mcpTool.controller,
+      ),
+    );
+    trewytgreMcpRouter.forEach((mcpTool) =>
       server.tool(
         mcpTool.name,
         mcpTool.description,

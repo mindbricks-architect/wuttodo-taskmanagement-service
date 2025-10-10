@@ -159,6 +159,26 @@ module.exports = (app) => {
         },
         endpoints: [],
       },
+
+      {
+        name: "Rfewtgwre",
+        description: "",
+        reference: {
+          tableName: "rfewtgwre",
+          properties: [],
+        },
+        endpoints: [],
+      },
+
+      {
+        name: "Trewytgre",
+        description: "",
+        reference: {
+          tableName: "trewytgre",
+          properties: [],
+        },
+        endpoints: [],
+      },
     ],
   };
 

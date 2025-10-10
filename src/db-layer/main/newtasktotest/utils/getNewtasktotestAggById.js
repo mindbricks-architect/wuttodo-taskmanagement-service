@@ -1,7 +1,7 @@
 const { HttpServerError, NotFoundError } = require("common");
 const { hexaLogger } = require("common");
 
-const { Task, Newtasktotest } = require("models");
+const { Task, Newtasktotest, Rfewtgwre, Trewytgre } = require("models");
 const { Op } = require("sequelize");
 
 const getNewtasktotestAggById = async (newtasktotestId) => {
