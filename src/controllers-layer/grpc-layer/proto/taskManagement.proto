@@ -8,6 +8,7 @@ import "google/protobuf/timestamp.proto";
 message task {
     string id = 1;
     string title = 2;
+    int32 hik = 3;
 }
 message newtasktotest {
     string id = 1;

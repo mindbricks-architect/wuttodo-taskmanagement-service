@@ -271,6 +271,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "id": "ID",
     "_owner": "ID",
     "title": "String",
+    "hik": "Short",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",

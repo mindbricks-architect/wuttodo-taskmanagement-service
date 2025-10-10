@@ -33,6 +33,7 @@ class CreateTaskManager extends TaskManager {
     super.parametersToJson(jsonObj);
     jsonObj.taskId = this.taskId;
     jsonObj.title = this.title;
+    jsonObj.hik = this.hik;
   }
 
   async checkBasicAuth() {
@@ -42,6 +43,7 @@ class CreateTaskManager extends TaskManager {
   readRestParameters(request) {
     this.taskId = request.body?.taskId;
     this.title = request.body?.title;
+    this.hik = request.body?.hik;
     this.id = request.body?.id ?? request.query?.id ?? request.id;
     this.requestData = request.body;
     this.queryData = request.query ?? {};
@@ -52,6 +54,7 @@ class CreateTaskManager extends TaskManager {
   readMcpParameters(request) {
     this.taskId = request.mcpParams.taskId;
     this.title = request.mcpParams.title;
+    this.hik = request.mcpParams.hik;
     this.id = request.mcpParams?.id;
     this.requestData = request.mcpParams;
   }
@@ -71,6 +74,7 @@ class CreateTaskManager extends TaskManager {
     const dataClause = {
       id: this.taskId,
       title: this.title,
+      hik: this.hik,
       isActive: true,
     };
 
@@ -80,6 +84,10 @@ class CreateTaskManager extends TaskManager {
   checkParameters() {
     if (this.title == null) {
       throw new BadRequestError("errMsg_titleisRequired");
+    }
+
+    if (this.hik == null) {
+      throw new BadRequestError("errMsg_hikisRequired");
     }
 
     // ID

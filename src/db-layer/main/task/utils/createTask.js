@@ -11,7 +11,7 @@ const indexDataToElastic = async (data) => {
 };
 
 const validateData = (data) => {
-  const requiredFields = ["title"];
+  const requiredFields = ["title", "hik"];
 
   requiredFields.forEach((field) => {
     if (data[field] === null || data[field] === undefined) {

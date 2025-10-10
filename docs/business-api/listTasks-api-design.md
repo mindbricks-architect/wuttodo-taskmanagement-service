@@ -260,6 +260,7 @@ Following JSON represents the most comprehensive form of the **`tasks`** object 
       "id": "ID",
       "_owner": "ID",
       "title": "String",
+      "hik": "Short",
       "isActive": true,
       "recordVersion": "Integer",
       "createdAt": "Date",

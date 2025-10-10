@@ -25,6 +25,7 @@ It is defined using the `ObjectSettings` pattern, which governs its behavior, ac
 | Property | Type   | Required | Description                                                                    |
 | -------- | ------ | -------- | ------------------------------------------------------------------------------ |
 | `title`  | String | Yes      | The main description or name of the todo item. Required and must be non-empty. |
+| `hik`    | Short  | Yes      | -                                                                              |
 
 - Required properties are mandatory for creating objects and must be provided in the request body if no default value is set.
 
@@ -34,10 +35,11 @@ Default values are automatically assigned to properties when a new object is cre
 Since default values are applied on db level, they should be literal values, not expressions.If you want to use expressions, you can use transposed parameters in any business API to set default values dynamically.
 
 - **title**: &#39;default&#39;
+- **hik**: 0
 
 ### Auto Update Properties
 
-`title`
+`title` `hik`
 
 An update crud API created with the option `Auto Params` enabled will automatically update these properties with the provided values in the request body.
 If you want to update any property in your own business logic not by user input, you can set the `Allow Auto Update` option to false.
@@ -45,7 +47,7 @@ These properties will be added to the update API's body parameters and can be up
 
 ### Elastic Search Indexing
 
-`title`
+`title` `hik`
 
 Properties that are indexed in Elastic Search will be searchable via the Elastic Search API.
 While all properties are stored in the elastic search index of the data object, only those marked for Elastic Search indexing will be available for search queries.

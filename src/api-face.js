@@ -36,6 +36,11 @@ module.exports = (app) => {
               name: "title",
               type: "String",
             },
+
+            {
+              name: "hik",
+              type: "Short",
+            },
           ],
         },
         endpoints: [
@@ -50,6 +55,7 @@ module.exports = (app) => {
               type: "json",
               content: {
                 title: "String",
+                hik: "Short",
               },
             },
 
@@ -68,6 +74,7 @@ module.exports = (app) => {
               type: "json",
               content: {
                 title: "String",
+                hik: "Short",
               },
             },
 

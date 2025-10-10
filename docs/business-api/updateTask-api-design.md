@@ -46,7 +46,7 @@ REST controllers also expose the Business API as a tool in the MCP, making it ac
 
 ## API Parameters
 
-The `updateTask` Business API has 2 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
+The `updateTask` Business API has 3 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
 
 Business API parameters can be:
 
@@ -63,6 +63,9 @@ Business API parameters can be:
 |                  |                                                                                   |          |         |           |           |
 | `title`          | `String`                                                                          | `No`     | `-`     | `body`    | `title`   |
 | **Description:** | The main description or name of the todo item. Required and must be non-empty.    |          |         |           |           |
+|                  |                                                                                   |          |         |           |           |
+| `hik`            | `Short`                                                                           | `No`     | `-`     | `body`    | `hik`     |
+| **Description:** | -                                                                                 |          |         |           |           |
 |                  |                                                                                   |          |         |           |           |
 
 ### Parameter Transformations
@@ -141,6 +144,7 @@ The business api will use the following data clause. Note that any calculated va
 ```js
 {
   title: this.title,
+  hik: this.hik,
 }
 ```
 
@@ -256,12 +260,13 @@ Manager triggers API-level events, sending relevant messages to Kafka or other i
 Client parameters are the api parameters that are visible to client and will be populated by the client.
 Note that some api parameters are not visible to client because they are populated by internal system, session, calculation or joint sources.
 
-The `updateTask` api has got 2 client parameters
+The `updateTask` api has got 3 client parameters
 
 | Parameter | Type   | Required | Population             |
 | --------- | ------ | -------- | ---------------------- |
 | taskId    | ID     | true     | request.params?.taskId |
 | title     | String | false    | request.body?.title    |
+| hik       | Short  | false    | request.body?.hik      |
 
 ### REST Request
 
@@ -273,6 +278,7 @@ axios({
   url: `/v1/tasks/${taskId}`,
   data: {
     title: "String",
+    hik: "Short",
   },
   params: {},
 });
@@ -304,6 +310,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "id": "ID",
     "_owner": "ID",
     "title": "String",
+    "hik": "Short",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",

@@ -46,7 +46,7 @@ REST controllers also expose the Business API as a tool in the MCP, making it ac
 
 ## API Parameters
 
-The `createTask` Business API has 2 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
+The `createTask` Business API has 3 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
 
 Business API parameters can be:
 
@@ -63,6 +63,9 @@ Business API parameters can be:
 |                  |                                                                                                            |          |         |          |           |
 | `title`          | `String`                                                                                                   | `Yes`    | `-`     | `body`   | `title`   |
 | **Description:** | The main description or name of the todo item. Required and must be non-empty.                             |          |         |          |           |
+|                  |                                                                                                            |          |         |          |           |
+| `hik`            | `Short`                                                                                                    | `Yes`    | `-`     | `body`   | `hik`     |
+| **Description:** | -                                                                                                          |          |         |          |           |
 |                  |                                                                                                            |          |         |          |           |
 
 ### Parameter Transformations
@@ -108,6 +111,7 @@ The business api will use the following data clause. Note that any calculated va
 {
   id: this.taskId,
   title: this.title,
+  hik: this.hik,
   isActive: true,
 }
 ```
@@ -193,11 +197,12 @@ Manager triggers API-level events (Kafka, WebSocket, async workflows) as the fin
 Client parameters are the api parameters that are visible to client and will be populated by the client.
 Note that some api parameters are not visible to client because they are populated by internal system, session, calculation or joint sources.
 
-The `createTask` api has got 1 client parameter
+The `createTask` api has got 2 client parameters
 
 | Parameter | Type   | Required | Population          |
 | --------- | ------ | -------- | ------------------- |
 | title     | String | true     | request.body?.title |
+| hik       | Short  | true     | request.body?.hik   |
 
 ### REST Request
 
@@ -209,6 +214,7 @@ axios({
   url: "/v1/tasks",
   data: {
     title: "String",
+    hik: "Short",
   },
   params: {},
 });
@@ -240,6 +246,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "id": "ID",
     "_owner": "ID",
     "title": "String",
+    "hik": "Short",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",

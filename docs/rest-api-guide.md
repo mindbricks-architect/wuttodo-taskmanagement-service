@@ -212,6 +212,7 @@ _Task Resource Properties_
 | Name | Type | Required | Default | Definition |
 | ---- | ---- | -------- | ------- | ---------- |
 | **title** | String | | | _The main description or name of the todo item. Required and must be non-empty._ |
+| **hik** | Short | | | \*\* |
 
 ### Newtasktotest resource
 
@@ -232,11 +233,12 @@ _Default access route_ : _POST_ `/v1/tasks`
 
 #### Parameters
 
-The createTask api has got 1 parameter
+The createTask api has got 2 parameters
 
 | Parameter | Type   | Required | Population          |
 | --------- | ------ | -------- | ------------------- |
 | title     | String | true     | request.body?.title |
+| hik       | Short  | true     | request.body?.hik   |
 
 To access the api you can use the **REST** controller with the path **POST /v1/tasks**
 
@@ -246,6 +248,7 @@ axios({
   url: "/v1/tasks",
   data: {
     title: "String",
+    hik: "Short",
   },
   params: {},
 });
@@ -275,6 +278,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "id": "ID",
     "_owner": "ID",
     "title": "String",
+    "hik": "Short",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -295,12 +299,13 @@ _Default access route_ : _PATCH_ `/v1/tasks/:taskId`
 
 #### Parameters
 
-The updateTask api has got 2 parameters
+The updateTask api has got 3 parameters
 
 | Parameter | Type   | Required | Population             |
 | --------- | ------ | -------- | ---------------------- |
 | taskId    | ID     | true     | request.params?.taskId |
 | title     | String | false    | request.body?.title    |
+| hik       | Short  | false    | request.body?.hik      |
 
 To access the api you can use the **REST** controller with the path **PATCH /v1/tasks/:taskId**
 
@@ -310,6 +315,7 @@ axios({
   url: `/v1/tasks/${taskId}`,
   data: {
     title: "String",
+    hik: "Short",
   },
   params: {},
 });
@@ -339,6 +345,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "id": "ID",
     "_owner": "ID",
     "title": "String",
+    "hik": "Short",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -400,6 +407,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "id": "ID",
     "_owner": "ID",
     "title": "String",
+    "hik": "Short",
     "isActive": false,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -461,6 +469,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "id": "ID",
     "_owner": "ID",
     "title": "String",
+    "hik": "Short",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -517,6 +526,7 @@ Following JSON represents the most comprehensive form of the **`tasks`** object 
       "id": "ID",
       "_owner": "ID",
       "title": "String",
+      "hik": "Short",
       "isActive": true,
       "recordVersion": "Integer",
       "createdAt": "Date",

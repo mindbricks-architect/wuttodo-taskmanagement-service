@@ -59,6 +59,7 @@ const syncElasticIndexData = async () => {
     console.log("Task agregated data is indexed, total tasks:", dataCount);
   } catch (err) {
     console.log("Elastic Index Error When Syncing Task data", err.toString());
+    console.log(err);
   }
 
   try {
@@ -72,6 +73,7 @@ const syncElasticIndexData = async () => {
       "Elastic Index Error When Syncing Newtasktotest data",
       err.toString(),
     );
+    console.log(err);
   }
 
   const elapsedTime = new Date() - startTime;
