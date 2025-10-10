@@ -41,6 +41,11 @@ module.exports = (app) => {
               name: "hik",
               type: "Short",
             },
+
+            {
+              name: "djnshdffhiew",
+              type: "Integer",
+            },
           ],
         },
         endpoints: [
@@ -56,6 +61,7 @@ module.exports = (app) => {
               content: {
                 title: "String",
                 hik: "Short",
+                djnshdffhiew: "Integer",
               },
             },
 
@@ -75,6 +81,7 @@ module.exports = (app) => {
               content: {
                 title: "String",
                 hik: "Short",
+                djnshdffhiew: "Integer",
               },
             },
 

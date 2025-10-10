@@ -9,6 +9,7 @@ message task {
     string id = 1;
     string title = 2;
     int32 hik = 3;
+    int32 djnshdffhiew = 4;
 }
 message newtasktotest {
     string id = 1;

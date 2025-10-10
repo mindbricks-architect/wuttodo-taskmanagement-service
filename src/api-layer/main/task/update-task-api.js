@@ -34,6 +34,7 @@ class UpdateTaskManager extends TaskManager {
     jsonObj.taskId = this.taskId;
     jsonObj.title = this.title;
     jsonObj.hik = this.hik;
+    jsonObj.djnshdffhiew = this.djnshdffhiew;
   }
 
   async checkBasicAuth() {
@@ -44,6 +45,7 @@ class UpdateTaskManager extends TaskManager {
     this.taskId = request.params?.taskId;
     this.title = request.body?.title;
     this.hik = request.body?.hik;
+    this.djnshdffhiew = request.body?.djnshdffhiew;
     this.requestData = request.body;
     this.queryData = request.query ?? {};
     const url = request.url;
@@ -54,6 +56,7 @@ class UpdateTaskManager extends TaskManager {
     this.taskId = request.mcpParams.taskId;
     this.title = request.mcpParams.title;
     this.hik = request.mcpParams.hik;
+    this.djnshdffhiew = request.mcpParams.djnshdffhiew;
     this.requestData = request.mcpParams;
   }
 
@@ -83,6 +86,7 @@ class UpdateTaskManager extends TaskManager {
     const dataClause = {
       title: this.title,
       hik: this.hik,
+      djnshdffhiew: this.djnshdffhiew,
     };
 
     let isEmpty = true;

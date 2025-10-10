@@ -34,6 +34,7 @@ class CreateTaskManager extends TaskManager {
     jsonObj.taskId = this.taskId;
     jsonObj.title = this.title;
     jsonObj.hik = this.hik;
+    jsonObj.djnshdffhiew = this.djnshdffhiew;
   }
 
   async checkBasicAuth() {
@@ -44,6 +45,7 @@ class CreateTaskManager extends TaskManager {
     this.taskId = request.body?.taskId;
     this.title = request.body?.title;
     this.hik = request.body?.hik;
+    this.djnshdffhiew = request.body?.djnshdffhiew;
     this.id = request.body?.id ?? request.query?.id ?? request.id;
     this.requestData = request.body;
     this.queryData = request.query ?? {};
@@ -55,6 +57,7 @@ class CreateTaskManager extends TaskManager {
     this.taskId = request.mcpParams.taskId;
     this.title = request.mcpParams.title;
     this.hik = request.mcpParams.hik;
+    this.djnshdffhiew = request.mcpParams.djnshdffhiew;
     this.id = request.mcpParams?.id;
     this.requestData = request.mcpParams;
   }
@@ -75,6 +78,7 @@ class CreateTaskManager extends TaskManager {
       id: this.taskId,
       title: this.title,
       hik: this.hik,
+      djnshdffhiew: this.djnshdffhiew,
       isActive: true,
     };
 
@@ -88,6 +92,10 @@ class CreateTaskManager extends TaskManager {
 
     if (this.hik == null) {
       throw new BadRequestError("errMsg_hikisRequired");
+    }
+
+    if (this.djnshdffhiew == null) {
+      throw new BadRequestError("errMsg_djnshdffhiewisRequired");
     }
 
     // ID

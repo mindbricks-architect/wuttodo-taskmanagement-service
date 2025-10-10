@@ -12,7 +12,7 @@
         "tags": [
           "task"
         ],
-        "summary": "The createTask API has 2 parameters.",
+        "summary": "The createTask API has 3 parameters.",
         "description": "createTask",
         "requestBody": {
           "description": "",
@@ -272,7 +272,7 @@
         "tags": [
           "task"
         ],
-        "summary": "The updateTask API has 3 parameters.",
+        "summary": "The updateTask API has 4 parameters.",
         "description": "updateTask",
         "parameters": [
           {
@@ -725,6 +725,10 @@
           "hik": {
             "type": "string",
             "nullable": false
+          },
+          "djnshdffhiew": {
+            "type": "string",
+            "nullable": false
           }
         },
         "additionalProperties": false
@@ -742,6 +746,10 @@
             "nullable": true
           },
           "hik": {
+            "type": "string",
+            "nullable": true
+          },
+          "djnshdffhiew": {
             "type": "string",
             "nullable": true
           }
@@ -1041,6 +1049,9 @@
           "hik": {
             "type": "string"
           },
+          "djnshdffhiew": {
+            "type": "string"
+          },
           "isActive": {
             "type": "boolean"
           },
@@ -1070,6 +1081,9 @@
             "type": "string"
           },
           "hik": {
+            "type": "string"
+          },
+          "djnshdffhiew": {
             "type": "string"
           },
           "isActive": {

@@ -21,7 +21,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"taskId\": \"ID\",\n  \"title\": \"String\",\n  \"hik\": \"Short\"\n}",
+          "raw": "{\n  \"taskId\": \"ID\",\n  \"title\": \"String\",\n  \"hik\": \"Short\",\n  \"djnshdffhiew\": \"Integer\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -58,7 +58,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"title\": \"String\",\n  \"hik\": \"Short\"\n}",
+          "raw": "{\n  \"title\": \"String\",\n  \"hik\": \"Short\",\n  \"djnshdffhiew\": \"Integer\"\n}",
           "options": {
             "raw": {
               "language": "json"

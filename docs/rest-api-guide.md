@@ -212,7 +212,8 @@ _Task Resource Properties_
 | Name | Type | Required | Default | Definition |
 | ---- | ---- | -------- | ------- | ---------- |
 | **title** | String | | | _The main description or name of the todo item. Required and must be non-empty._ |
-| **hik** | Short | | | \*\* |
+| **hik** | Short | | | ** |
+| **djnshdffhiew** | Integer | | | ** |
 
 ### Newtasktotest resource
 
@@ -257,12 +258,13 @@ _Default access route_ : _POST_ `/v1/tasks`
 
 #### Parameters
 
-The createTask api has got 2 parameters
+The createTask api has got 3 parameters
 
-| Parameter | Type   | Required | Population          |
-| --------- | ------ | -------- | ------------------- |
-| title     | String | true     | request.body?.title |
-| hik       | Short  | true     | request.body?.hik   |
+| Parameter    | Type    | Required | Population                 |
+| ------------ | ------- | -------- | -------------------------- |
+| title        | String  | true     | request.body?.title        |
+| hik          | Short   | true     | request.body?.hik          |
+| djnshdffhiew | Integer | true     | request.body?.djnshdffhiew |
 
 To access the api you can use the **REST** controller with the path **POST /v1/tasks**
 
@@ -273,6 +275,7 @@ axios({
   data: {
     title: "String",
     hik: "Short",
+    djnshdffhiew: "Integer",
   },
   params: {},
 });
@@ -303,6 +306,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "_owner": "ID",
     "title": "String",
     "hik": "Short",
+    "djnshdffhiew": "Integer",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -323,13 +327,14 @@ _Default access route_ : _PATCH_ `/v1/tasks/:taskId`
 
 #### Parameters
 
-The updateTask api has got 3 parameters
+The updateTask api has got 4 parameters
 
-| Parameter | Type   | Required | Population             |
-| --------- | ------ | -------- | ---------------------- |
-| taskId    | ID     | true     | request.params?.taskId |
-| title     | String | false    | request.body?.title    |
-| hik       | Short  | false    | request.body?.hik      |
+| Parameter    | Type    | Required | Population                 |
+| ------------ | ------- | -------- | -------------------------- |
+| taskId       | ID      | true     | request.params?.taskId     |
+| title        | String  | false    | request.body?.title        |
+| hik          | Short   | false    | request.body?.hik          |
+| djnshdffhiew | Integer | false    | request.body?.djnshdffhiew |
 
 To access the api you can use the **REST** controller with the path **PATCH /v1/tasks/:taskId**
 
@@ -340,6 +345,7 @@ axios({
   data: {
     title: "String",
     hik: "Short",
+    djnshdffhiew: "Integer",
   },
   params: {},
 });
@@ -370,6 +376,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "_owner": "ID",
     "title": "String",
     "hik": "Short",
+    "djnshdffhiew": "Integer",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -432,6 +439,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "_owner": "ID",
     "title": "String",
     "hik": "Short",
+    "djnshdffhiew": "Integer",
     "isActive": false,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -494,6 +502,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "_owner": "ID",
     "title": "String",
     "hik": "Short",
+    "djnshdffhiew": "Integer",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
@@ -551,6 +560,7 @@ Following JSON represents the most comprehensive form of the **`tasks`** object 
       "_owner": "ID",
       "title": "String",
       "hik": "Short",
+      "djnshdffhiew": "Integer",
       "isActive": true,
       "recordVersion": "Integer",
       "createdAt": "Date",

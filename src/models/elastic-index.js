@@ -6,6 +6,7 @@ const taskMapping = {
   _owner: { type: "keyword" },
   title: { type: "keyword", index: true },
   hik: { type: "short", index: true },
+  djnshdffhiew: { type: "integer", index: true },
   isActive: { type: "boolean" },
   recordVersion: { type: "integer" },
   createdAt: { type: "date" },

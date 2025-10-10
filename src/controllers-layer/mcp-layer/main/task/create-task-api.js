@@ -31,6 +31,7 @@ class CreateTaskMcpController extends TaskManagementMcpController {
                 "The main description or name of the todo item. Required and must be non-empty.",
               ),
             hik: z.number().max(32767).min(-32768).describe("null"),
+            djnshdffhiew: z.number().int().describe("null"),
             isActive: z
               .boolean()
               .describe(
@@ -60,6 +61,8 @@ class CreateTaskMcpController extends TaskManagementMcpController {
         ),
 
       hik: z.number().max(32767).min(-32768).describe(""),
+
+      djnshdffhiew: z.number().int().describe(""),
     };
   }
 }

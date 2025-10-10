@@ -46,7 +46,7 @@ REST controllers also expose the Business API as a tool in the MCP, making it ac
 
 ## API Parameters
 
-The `createTask` Business API has 3 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
+The `createTask` Business API has 4 parameters that must be sent from the controller. Note that all parameters, except session and Redis parameters, should be provided by the client.
 
 Business API parameters can be:
 
@@ -55,18 +55,21 @@ Business API parameters can be:
 
 ### Parameter Details
 
-| Name             | Type                                                                                                       | Required | Default | Location | Data Path |
-| ---------------- | ---------------------------------------------------------------------------------------------------------- | -------- | ------- | -------- | --------- |
-|                  |                                                                                                            |          |         |          |           |
-| `taskId`         | `ID`                                                                                                       | `No`     | `-`     | `body`   | `taskId`  |
-| **Description:** | This id paremeter is used to create the data object with a given specific id. Leave null for automatic id. |          |         |          |           |
-|                  |                                                                                                            |          |         |          |           |
-| `title`          | `String`                                                                                                   | `Yes`    | `-`     | `body`   | `title`   |
-| **Description:** | The main description or name of the todo item. Required and must be non-empty.                             |          |         |          |           |
-|                  |                                                                                                            |          |         |          |           |
-| `hik`            | `Short`                                                                                                    | `Yes`    | `-`     | `body`   | `hik`     |
-| **Description:** | -                                                                                                          |          |         |          |           |
-|                  |                                                                                                            |          |         |          |           |
+| Name             | Type                                                                                                       | Required | Default | Location | Data Path      |
+| ---------------- | ---------------------------------------------------------------------------------------------------------- | -------- | ------- | -------- | -------------- |
+|                  |                                                                                                            |          |         |          |                |
+| `taskId`         | `ID`                                                                                                       | `No`     | `-`     | `body`   | `taskId`       |
+| **Description:** | This id paremeter is used to create the data object with a given specific id. Leave null for automatic id. |          |         |          |                |
+|                  |                                                                                                            |          |         |          |                |
+| `title`          | `String`                                                                                                   | `Yes`    | `-`     | `body`   | `title`        |
+| **Description:** | The main description or name of the todo item. Required and must be non-empty.                             |          |         |          |                |
+|                  |                                                                                                            |          |         |          |                |
+| `hik`            | `Short`                                                                                                    | `Yes`    | `-`     | `body`   | `hik`          |
+| **Description:** | -                                                                                                          |          |         |          |                |
+|                  |                                                                                                            |          |         |          |                |
+| `djnshdffhiew`   | `Integer`                                                                                                  | `Yes`    | `-`     | `body`   | `djnshdffhiew` |
+| **Description:** | -                                                                                                          |          |         |          |                |
+|                  |                                                                                                            |          |         |          |                |
 
 ### Parameter Transformations
 
@@ -112,6 +115,7 @@ The business api will use the following data clause. Note that any calculated va
   id: this.taskId,
   title: this.title,
   hik: this.hik,
+  djnshdffhiew: this.djnshdffhiew,
   isActive: true,
 }
 ```
@@ -197,12 +201,13 @@ Manager triggers API-level events (Kafka, WebSocket, async workflows) as the fin
 Client parameters are the api parameters that are visible to client and will be populated by the client.
 Note that some api parameters are not visible to client because they are populated by internal system, session, calculation or joint sources.
 
-The `createTask` api has got 2 client parameters
+The `createTask` api has got 3 client parameters
 
-| Parameter | Type   | Required | Population          |
-| --------- | ------ | -------- | ------------------- |
-| title     | String | true     | request.body?.title |
-| hik       | Short  | true     | request.body?.hik   |
+| Parameter    | Type    | Required | Population                 |
+| ------------ | ------- | -------- | -------------------------- |
+| title        | String  | true     | request.body?.title        |
+| hik          | Short   | true     | request.body?.hik          |
+| djnshdffhiew | Integer | true     | request.body?.djnshdffhiew |
 
 ### REST Request
 
@@ -215,6 +220,7 @@ axios({
   data: {
     title: "String",
     hik: "Short",
+    djnshdffhiew: "Integer",
   },
   params: {},
 });
@@ -247,6 +253,7 @@ Following JSON represents the most comprehensive form of the **`task`** object i
     "_owner": "ID",
     "title": "String",
     "hik": "Short",
+    "djnshdffhiew": "Integer",
     "isActive": true,
     "recordVersion": "Integer",
     "createdAt": "Date",
