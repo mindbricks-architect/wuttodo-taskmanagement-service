@@ -5,5 +5,6 @@ module.exports = (headers) => {
     newtasktotestMcpRouter: require("./newtasktotest")(headers),
     rfewtgwreMcpRouter: require("./rfewtgwre")(headers),
     trewytgreMcpRouter: require("./trewytgre")(headers),
+    gfsgaMcpRouter: require("./gfsga")(headers),
   };
 };

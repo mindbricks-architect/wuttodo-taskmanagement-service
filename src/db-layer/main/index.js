@@ -2,6 +2,7 @@ const taskFunctions = require("./task");
 const newtasktotestFunctions = require("./newtasktotest");
 const rfewtgwreFunctions = require("./rfewtgwre");
 const trewytgreFunctions = require("./trewytgre");
+const gfsgaFunctions = require("./gfsga");
 
 module.exports = {
   // main Database
@@ -64,4 +65,17 @@ module.exports = {
   updateTrewytgreByQuery: trewytgreFunctions.updateTrewytgreByQuery,
   deleteTrewytgreById: trewytgreFunctions.deleteTrewytgreById,
   deleteTrewytgreByQuery: trewytgreFunctions.deleteTrewytgreByQuery,
+
+  createGfsga: gfsgaFunctions.createGfsga,
+  getIdListOfGfsgaByField: gfsgaFunctions.getIdListOfGfsgaByField,
+  getGfsgaById: gfsgaFunctions.getGfsgaById,
+  getGfsgaAggById: gfsgaFunctions.getGfsgaAggById,
+  getGfsgaListByQuery: gfsgaFunctions.getGfsgaListByQuery,
+  getGfsgaStatsByQuery: gfsgaFunctions.getGfsgaStatsByQuery,
+  getGfsgaByQuery: gfsgaFunctions.getGfsgaByQuery,
+  updateGfsgaById: gfsgaFunctions.updateGfsgaById,
+  updateGfsgaByIdList: gfsgaFunctions.updateGfsgaByIdList,
+  updateGfsgaByQuery: gfsgaFunctions.updateGfsgaByQuery,
+  deleteGfsgaById: gfsgaFunctions.deleteGfsgaById,
+  deleteGfsgaByQuery: gfsgaFunctions.deleteGfsgaByQuery,
 };

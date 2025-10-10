@@ -84,6 +84,7 @@ app.post("/mcp", async (req, res) => {
       newtasktotestMcpRouter,
       rfewtgwreMcpRouter,
       trewytgreMcpRouter,
+      gfsgaMcpRouter,
       getSessionRouter,
     } = require("mcpLayer")(initialHeaders);
 
@@ -114,6 +115,14 @@ app.post("/mcp", async (req, res) => {
       ),
     );
     trewytgreMcpRouter.forEach((mcpTool) =>
+      server.tool(
+        mcpTool.name,
+        mcpTool.description,
+        mcpTool.parameters,
+        mcpTool.controller,
+      ),
+    );
+    gfsgaMcpRouter.forEach((mcpTool) =>
       server.tool(
         mcpTool.name,
         mcpTool.description,

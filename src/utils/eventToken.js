@@ -9,6 +9,7 @@ const PrivateObjectEvents = {
   newtasktotest: [],
   rfewtgwre: [],
   trewytgre: [],
+  gfsga: [],
 };
 
 const createAdminToken = async (session) => {

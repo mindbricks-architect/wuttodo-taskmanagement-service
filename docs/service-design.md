@@ -1,7 +1,7 @@
 # Service Design Specification
 
 **wuttodo-taskmanagement-service** documentation
--Version:**`1.0.8`**
+-Version:**`1.0.10`**
 
 ## Scope
 
@@ -62,6 +62,7 @@ Data deletion is managed using a **soft delete** strategy. Instead of removing r
 | `newtasktotest` | No description                                                                                 | accessPrivate |
 | `rfewtgwre`     | No description                                                                                 | accessPrivate |
 | `trewytgre`     | No description                                                                                 | accessPrivate |
+| `gfsga`         | No description                                                                                 | accessPrivate |
 
 ## task Data Object
 
@@ -181,6 +182,24 @@ It is defined using the `ObjectSettings` pattern, which governs its behavior, ac
 **No properties defined for this object.**
 
 ## trewytgre Data Object
+
+### Object Overview
+
+**Description:** No description provided.
+
+This object represents a core data structure within the service and acts as the blueprint for database interaction, API generation, and business logic enforcement.
+It is defined using the `ObjectSettings` pattern, which governs its behavior, access control, caching strategy, and integration points with other systems such as Stripe and Redis.
+
+### Core Configuration
+
+- **Soft Delete:** Enabled — Determines whether records are marked inactive (`isActive = false`) instead of being physically deleted.
+- **Public Access:** accessPrivate — If enabled, anonymous users may access this object’s data depending on API-level rules.
+
+### Properties Schema
+
+**No properties defined for this object.**
+
+## gfsga Data Object
 
 ### Object Overview
 

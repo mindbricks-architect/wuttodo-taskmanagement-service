@@ -179,6 +179,16 @@ module.exports = (app) => {
         },
         endpoints: [],
       },
+
+      {
+        name: "Gfsga",
+        description: "",
+        reference: {
+          tableName: "gfsga",
+          properties: [],
+        },
+        endpoints: [],
+      },
     ],
   };
 

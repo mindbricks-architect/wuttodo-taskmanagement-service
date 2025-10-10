@@ -4,4 +4,5 @@ module.exports = {
   newtasktotestRouter: require("./newtasktotest"),
   rfewtgwreRouter: require("./rfewtgwre"),
   trewytgreRouter: require("./trewytgre"),
+  gfsgaRouter: require("./gfsga"),
 };

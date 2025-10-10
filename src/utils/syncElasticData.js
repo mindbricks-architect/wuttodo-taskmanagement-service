@@ -5,6 +5,7 @@ const {
 } = require("dbLayer");
 const { getRfewtgwreById, getIdListOfRfewtgwreByField } = require("dbLayer");
 const { getTrewytgreById, getIdListOfTrewytgreByField } = require("dbLayer");
+const { getGfsgaById, getIdListOfGfsgaByField } = require("dbLayer");
 const path = require("path");
 const fs = require("fs");
 const { ElasticIndexer } = require("serviceCommon");
@@ -92,6 +93,26 @@ const indexTrewytgreData = async () => {
   return total;
 };
 
+const indexGfsgaData = async () => {
+  const gfsgaIndexer = new ElasticIndexer("gfsga", { isSilent: true });
+  console.log("Starting to update indexes for Gfsga");
+
+  const idList = (await getIdListOfGfsgaByField("isActive", true)) ?? [];
+  const chunkSize = 500;
+  let total = 0;
+  for (let i = 0; i < idList.length; i += chunkSize) {
+    const chunk = idList.slice(i, i + chunkSize);
+    const dataList = await getGfsgaById(chunk);
+    if (dataList.length) {
+      await gfsgaIndexer.indexBulkData(dataList);
+      await gfsgaIndexer.deleteRedisCache();
+    }
+    total += dataList.length;
+  }
+
+  return total;
+};
+
 const syncElasticIndexData = async () => {
   const startTime = new Date();
   console.log("syncElasticIndexData started", startTime);
@@ -143,6 +164,14 @@ const syncElasticIndexData = async () => {
       "Elastic Index Error When Syncing Trewytgre data",
       err.toString(),
     );
+    console.log(err);
+  }
+
+  try {
+    const dataCount = await indexGfsgaData();
+    console.log("Gfsga agregated data is indexed, total gfsgas:", dataCount);
+  } catch (err) {
+    console.log("Elastic Index Error When Syncing Gfsga data", err.toString());
     console.log(err);
   }
 

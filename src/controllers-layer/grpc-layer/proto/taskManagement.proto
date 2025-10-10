@@ -20,6 +20,9 @@ message rfewtgwre {
 message trewytgre {
     string id = 1;
 }
+message gfsga {
+    string id = 1;
+}
 
 
 

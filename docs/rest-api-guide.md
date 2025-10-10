@@ -233,6 +233,12 @@ _Trewytgre Resource Properties_
 | Name | Type | Required | Default | Definition |
 | ---- | ---- | -------- | ------- | ---------- |
 
+### Gfsga resource
+
+_Gfsga Resource Properties_
+| Name | Type | Required | Default | Definition |
+| ---- | ---- | -------- | ------- | ---------- |
+
 ## Business Api
 
 ### Create Task API

@@ -58,4 +58,17 @@ module.exports = {
   updateTrewytgreByQuery: mainFunctions.updateTrewytgreByQuery,
   deleteTrewytgreById: mainFunctions.deleteTrewytgreById,
   deleteTrewytgreByQuery: mainFunctions.deleteTrewytgreByQuery,
+
+  createGfsga: mainFunctions.createGfsga,
+  getIdListOfGfsgaByField: mainFunctions.getIdListOfGfsgaByField,
+  getGfsgaById: mainFunctions.getGfsgaById,
+  getGfsgaAggById: mainFunctions.getGfsgaAggById,
+  getGfsgaListByQuery: mainFunctions.getGfsgaListByQuery,
+  getGfsgaStatsByQuery: mainFunctions.getGfsgaStatsByQuery,
+  getGfsgaByQuery: mainFunctions.getGfsgaByQuery,
+  updateGfsgaById: mainFunctions.updateGfsgaById,
+  updateGfsgaByIdList: mainFunctions.updateGfsgaByIdList,
+  updateGfsgaByQuery: mainFunctions.updateGfsgaByQuery,
+  deleteGfsgaById: mainFunctions.deleteGfsgaById,
+  deleteGfsgaByQuery: mainFunctions.deleteGfsgaByQuery,
 };
