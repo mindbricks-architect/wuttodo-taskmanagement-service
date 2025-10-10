@@ -3,6 +3,7 @@ const newtasktotestFunctions = require("./newtasktotest");
 const rfewtgwreFunctions = require("./rfewtgwre");
 const trewytgreFunctions = require("./trewytgre");
 const gfsgaFunctions = require("./gfsga");
+const yertyeFunctions = require("./yertye");
 
 module.exports = {
   // main Database
@@ -78,4 +79,17 @@ module.exports = {
   updateGfsgaByQuery: gfsgaFunctions.updateGfsgaByQuery,
   deleteGfsgaById: gfsgaFunctions.deleteGfsgaById,
   deleteGfsgaByQuery: gfsgaFunctions.deleteGfsgaByQuery,
+
+  createYertye: yertyeFunctions.createYertye,
+  getIdListOfYertyeByField: yertyeFunctions.getIdListOfYertyeByField,
+  getYertyeById: yertyeFunctions.getYertyeById,
+  getYertyeAggById: yertyeFunctions.getYertyeAggById,
+  getYertyeListByQuery: yertyeFunctions.getYertyeListByQuery,
+  getYertyeStatsByQuery: yertyeFunctions.getYertyeStatsByQuery,
+  getYertyeByQuery: yertyeFunctions.getYertyeByQuery,
+  updateYertyeById: yertyeFunctions.updateYertyeById,
+  updateYertyeByIdList: yertyeFunctions.updateYertyeByIdList,
+  updateYertyeByQuery: yertyeFunctions.updateYertyeByQuery,
+  deleteYertyeById: yertyeFunctions.deleteYertyeById,
+  deleteYertyeByQuery: yertyeFunctions.deleteYertyeByQuery,
 };

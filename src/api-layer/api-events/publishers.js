@@ -10,4 +10,6 @@ const { ServicePublisher } = require("serviceCommon");
 
 // Gfsga Event Publisher Classes
 
+// Yertye Event Publisher Classes
+
 module.exports = {};

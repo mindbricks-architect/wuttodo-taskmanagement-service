@@ -23,6 +23,9 @@ message trewytgre {
 message gfsga {
     string id = 1;
 }
+message yertye {
+    string id = 1;
+}
 
 
 

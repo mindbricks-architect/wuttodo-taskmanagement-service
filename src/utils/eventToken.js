@@ -10,6 +10,7 @@ const PrivateObjectEvents = {
   rfewtgwre: [],
   trewytgre: [],
   gfsga: [],
+  yertye: [],
 };
 
 const createAdminToken = async (session) => {

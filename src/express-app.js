@@ -97,6 +97,7 @@ const {
   rfewtgwreRouter,
   trewytgreRouter,
   gfsgaRouter,
+  yertyeRouter,
 } = require("restLayer");
 
 app.use("", taskRouter);
@@ -104,6 +105,7 @@ app.use("", newtasktotestRouter);
 app.use("", rfewtgwreRouter);
 app.use("", trewytgreRouter);
 app.use("", gfsgaRouter);
+app.use("", yertyeRouter);
 
 // swagger
 

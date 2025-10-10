@@ -44,6 +44,14 @@ const gfsgaMapping = {
   createdAt: { type: "date" },
   updatedAt: { type: "date" },
 };
+const yertyeMapping = {
+  id: { type: "keyword" },
+  _owner: { type: "keyword" },
+  isActive: { type: "boolean" },
+  recordVersion: { type: "integer" },
+  createdAt: { type: "date" },
+  updatedAt: { type: "date" },
+};
 
 const updateElasticIndexMappings = async () => {
   try {
@@ -59,6 +67,8 @@ const updateElasticIndexMappings = async () => {
     await new ElasticIndexer("trewytgre").updateMapping(trewytgreMapping);
     ElasticIndexer.addMapping("gfsga", gfsgaMapping);
     await new ElasticIndexer("gfsga").updateMapping(gfsgaMapping);
+    ElasticIndexer.addMapping("yertye", yertyeMapping);
+    await new ElasticIndexer("yertye").updateMapping(yertyeMapping);
   } catch (err) {
     hexaLogger.insertError(
       "UpdateElasticIndexMappingsError",

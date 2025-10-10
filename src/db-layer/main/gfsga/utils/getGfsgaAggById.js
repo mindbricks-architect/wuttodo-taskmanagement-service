@@ -1,7 +1,14 @@
 const { HttpServerError, NotFoundError } = require("common");
 const { hexaLogger } = require("common");
 
-const { Task, Newtasktotest, Rfewtgwre, Trewytgre, Gfsga } = require("models");
+const {
+  Task,
+  Newtasktotest,
+  Rfewtgwre,
+  Trewytgre,
+  Gfsga,
+  Yertye,
+} = require("models");
 const { Op } = require("sequelize");
 
 const getGfsgaAggById = async (gfsgaId) => {

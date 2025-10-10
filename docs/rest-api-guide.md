@@ -239,6 +239,12 @@ _Gfsga Resource Properties_
 | Name | Type | Required | Default | Definition |
 | ---- | ---- | -------- | ------- | ---------- |
 
+### Yertye resource
+
+_Yertye Resource Properties_
+| Name | Type | Required | Default | Definition |
+| ---- | ---- | -------- | ------- | ---------- |
+
 ## Business Api
 
 ### Create Task API

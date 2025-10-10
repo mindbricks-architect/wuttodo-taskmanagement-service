@@ -5,4 +5,5 @@ module.exports = {
   rfewtgwreRouter: require("./rfewtgwre"),
   trewytgreRouter: require("./trewytgre"),
   gfsgaRouter: require("./gfsga"),
+  yertyeRouter: require("./yertye"),
 };

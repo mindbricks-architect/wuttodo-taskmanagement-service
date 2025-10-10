@@ -71,4 +71,17 @@ module.exports = {
   updateGfsgaByQuery: mainFunctions.updateGfsgaByQuery,
   deleteGfsgaById: mainFunctions.deleteGfsgaById,
   deleteGfsgaByQuery: mainFunctions.deleteGfsgaByQuery,
+
+  createYertye: mainFunctions.createYertye,
+  getIdListOfYertyeByField: mainFunctions.getIdListOfYertyeByField,
+  getYertyeById: mainFunctions.getYertyeById,
+  getYertyeAggById: mainFunctions.getYertyeAggById,
+  getYertyeListByQuery: mainFunctions.getYertyeListByQuery,
+  getYertyeStatsByQuery: mainFunctions.getYertyeStatsByQuery,
+  getYertyeByQuery: mainFunctions.getYertyeByQuery,
+  updateYertyeById: mainFunctions.updateYertyeById,
+  updateYertyeByIdList: mainFunctions.updateYertyeByIdList,
+  updateYertyeByQuery: mainFunctions.updateYertyeByQuery,
+  deleteYertyeById: mainFunctions.deleteYertyeById,
+  deleteYertyeByQuery: mainFunctions.deleteYertyeByQuery,
 };

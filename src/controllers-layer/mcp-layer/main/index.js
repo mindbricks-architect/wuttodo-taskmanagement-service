@@ -6,5 +6,6 @@ module.exports = (headers) => {
     rfewtgwreMcpRouter: require("./rfewtgwre")(headers),
     trewytgreMcpRouter: require("./trewytgre")(headers),
     gfsgaMcpRouter: require("./gfsga")(headers),
+    yertyeMcpRouter: require("./yertye")(headers),
   };
 };
